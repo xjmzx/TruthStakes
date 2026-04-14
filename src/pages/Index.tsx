@@ -139,7 +139,7 @@ const Index = () => {
         <div>
           <h1 className="text-3xl font-bold tracking-tight mb-1">
             <span className="bg-gradient-to-r from-[#34d399] via-[#a78bfa] to-[#34d399] bg-clip-text text-transparent">
-              TruthStakes
+              stakes
             </span>
           </h1>
           <p className="text-sm text-muted-foreground">
