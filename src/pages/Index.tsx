@@ -116,14 +116,13 @@ const Index = () => {
 
       {/* Nav */}
       <nav className="border-b border-border px-6 py-4">
-        <div className="max-w-4xl mx-auto flex items-center justify-between">
+        <div className="max-w-5xl mx-auto flex items-center justify-between">
           <a href="https://fizx.uk" className="flex items-center gap-2" aria-label="fizx.uk">
             <FizxLogo />
             <span className="font-mono text-sm">
-              <span className="bg-gradient-to-r from-[#34d399] via-[#a78bfa] to-[#34d399] bg-clip-text text-transparent font-bold">
-                stakes
-              </span>
-              <span className="text-muted-foreground">.fizx.uk</span>
+              <span className="bg-gradient-to-r from-[#34d399] via-[#a78bfa] to-[#34d399] bg-clip-text text-transparent font-bold">fizx</span>
+              <span className="text-muted-foreground">.uk</span>
+              <span className="text-muted-foreground/40 ml-1">/ stakes</span>
             </span>
           </a>
           <div className="flex items-center gap-3">
@@ -133,7 +132,7 @@ const Index = () => {
         </div>
       </nav>
 
-      <div className="flex-1 max-w-4xl mx-auto w-full px-6 py-10 space-y-8">
+      <div className="flex-1 max-w-5xl mx-auto w-full px-6 py-10 space-y-8">
 
         {/* Header */}
         <div>
@@ -253,7 +252,7 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="border-t border-border px-6 py-5">
-        <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-y-2 text-xs text-muted-foreground font-mono">
+        <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-y-2 text-xs text-muted-foreground font-mono">
           <span>stakes.fizx.uk</span>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
             {([
