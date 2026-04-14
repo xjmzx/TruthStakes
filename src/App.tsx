@@ -15,6 +15,7 @@ import { NWCProvider } from '@/contexts/NWCContext';
 import { AppConfig } from '@/contexts/AppContext';
 import AppRouter from './AppRouter';
 import { useAppContext } from '@/hooks/useAppContext';
+
 const head = createHead({
   plugins: [
     InferSeoMetaPlugin(),
@@ -25,7 +26,7 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
-      staleTime: 60000, // 1 minute
+      staleTime: 60000,
       gcTime: Infinity,
     },
   },
@@ -43,28 +44,35 @@ const presetRelays = [
   { url: 'wss://relay.primal.net', name: 'Primal' },
 ];
 
-export function App() {
+// AppInner must live *inside* AppProvider so useAppContext() has a provider above it.
+function AppInner() {
   const { config } = useAppContext();
+  return (
+    <QueryClientProvider client={queryClient}>
+      <NostrLoginProvider storageKey='nostr:login'>
+        <NostrProvider>
+          <NWCProvider>
+            <TooltipProvider>
+              <Toaster />
+              <Sonner />
+              <Suspense>
+                <div className={config.theme === 'dark' ? 'dark' : ''}>
+                  <AppRouter />
+                </div>
+              </Suspense>
+            </TooltipProvider>
+          </NWCProvider>
+        </NostrProvider>
+      </NostrLoginProvider>
+    </QueryClientProvider>
+  );
+}
+
+export function App() {
   return (
     <UnheadProvider head={head}>
       <AppProvider storageKey="stakes:app-config" defaultConfig={defaultConfig} presetRelays={presetRelays}>
-        <QueryClientProvider client={queryClient}>
-          <NostrLoginProvider storageKey='nostr:login'>
-            <NostrProvider>
-              <NWCProvider>
-                <TooltipProvider>
-                  <Toaster />
-                  <Sonner />
-                  <Suspense>
-                    <div className={config.theme === 'dark' ? 'dark' : ''}>
-                      <AppRouter />
-                    </div>
-                  </Suspense>
-                </TooltipProvider>
-              </NWCProvider>
-            </NostrProvider>
-          </NostrLoginProvider>
-        </QueryClientProvider>
+        <AppInner />
       </AppProvider>
     </UnheadProvider>
   );
