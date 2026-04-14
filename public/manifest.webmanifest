@@ -1,13 +1,13 @@
 {
-  "name": "Game 1",
-  "short_name": "Game 1",
+  "name": "TruthStakes",
+  "short_name": "Stakes",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#fff",
-  "theme_color": "#000",
+  "background_color": "#0d1117",
+  "theme_color": "#34d399",
   "icons": [
     {
-      "src": "/vite.svg",
+      "src": "/favicon.svg",
       "sizes": "512x512",
       "type": "image/svg+xml"
     }
