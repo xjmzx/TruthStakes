@@ -253,9 +253,21 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="border-t border-border px-6 py-5">
-        <div className="max-w-4xl mx-auto flex items-center justify-between text-xs text-muted-foreground font-mono">
+        <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-y-2 text-xs text-muted-foreground font-mono">
           <span>stakes.fizx.uk</span>
-          <span className="text-primary/60">✦ built with claude</span>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            {([
+              ['https://fizx.uk',         'fizx.uk'],
+              ['https://glimpse.fizx.uk', 'glimpse'],
+              ['https://pulse.fizx.uk',   'pulse'],
+              ['https://ln.fizx.uk',      'ln'],
+              ['https://stakes.fizx.uk',  'stakes'],
+              ['https://sonic.fizx.uk',   'sonic'],
+            ] as [string, string][]).map(([href, label]) => (
+              <a key={href} href={href} className="hover:text-primary transition-colors">{label}</a>
+            ))}
+            <span className="text-primary/60 ml-1">✦ built with claude</span>
+          </div>
         </div>
       </footer>
 
